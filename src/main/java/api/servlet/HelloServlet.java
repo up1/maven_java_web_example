@@ -14,15 +14,30 @@ import org.codehaus.jackson.map.ObjectMapper;
 public class HelloServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse response)
             throws ServletException, IOException {
 
         User user = new User();
-        user.setId("1");
+        user.setId("1111");
         user.setName("Up1");
 
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(resp.getOutputStream(), user);
+        mapper.writeValue(response.getOutputStream(), user);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        User sendUser = mapper.readValue(req.getInputStream(), User.class);
+
+        User user = new User();
+        user.setId("0000");
+        user.setName("Response from POST form " + sendUser.getName());
+
+        mapper.writeValue(response.getOutputStream(), user);
 
     }
 
