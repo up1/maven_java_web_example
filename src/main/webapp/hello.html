@@ -1,4 +1,4 @@
-<h1>Hello World</h1>
+<h1>Example :: Get data</h1>
 <li>id: <span id="_id"></span></li>
 <li>name: <span id="_name"></span></li>
 
@@ -28,22 +28,26 @@ function errorFunctionName(e) {
 }
 </script>
 
-
+<hr/>
+<h1>Example :: Post data</h1>
 <form method="post" action="/hello">
     <input type="text" id="name">
-    <input type="button" value="Send" onclick="sendDataToServer()">
+    <input type="button" value="Send" onclick="sendDataToServer(form.name.value)">
 </form>
+<p id="result">Hello World</p>
+
 
 <script language="JavaScript">
-    function sendDataToServer() {
+    function sendDataToServer(data) {
         var ajax = new XMLHttpRequest();
         ajax.onload = receiveResponse;
         ajax.open("POST", "http://localhost:8080/api/hello", true);
         ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        ajax.send(JSON.stringify({ name: "Demo2" }));
+        ajax.send(JSON.stringify({ name: data }));
     }
 
     function receiveResponse() {
+        document.getElementById("result").innerHTML = this.responseText;
         console.log(this.responseText);
     }
 

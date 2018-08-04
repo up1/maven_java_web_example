@@ -17,10 +17,12 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Business Logic
         User user = new User();
         user.setId("1111");
         user.setName("Up1");
 
+        // Create response message
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValue(response.getOutputStream(), user);
 
@@ -29,14 +31,16 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response)
             throws ServletException, IOException {
-
+        // Convert request to Java object
         ObjectMapper mapper = new ObjectMapper();
         User sendUser = mapper.readValue(req.getInputStream(), User.class);
 
+        // Business Logic
         User user = new User();
         user.setId("0000");
         user.setName("Response from POST form " + sendUser.getName());
 
+        // Create response message
         mapper.writeValue(response.getOutputStream(), user);
 
     }
