@@ -1,12 +1,24 @@
 For APIs
 
-*  How to run ?
+# Run test
+```
+$mvnw clean test
+```
+
+# Create WAR file
+```
+$mvnw clean package
+```
+
+#  How to run web server with Apache Tomcat ?
 
 ```
-$mvn clean package tomcat7:run
+$mvnw tomcat7:run
 ```
 
-*  Run in browser http://localhost:8080/api/hello
+#  Run in browser 
+* http://localhost:8080/api/hello
+* http://localhost:8080/api/hello.html
 
 
 
