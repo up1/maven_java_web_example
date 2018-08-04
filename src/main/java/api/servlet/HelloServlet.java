@@ -18,9 +18,11 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // Business Logic
-        User user = new User();
-        user.setId("1111");
-        user.setName("Up1");
+        UserModel model = new UserModel();
+        User user = model.getUser();
+
+//        user.setId("1111");
+//        user.setName("Up1");
 
         // Create response message
         ObjectMapper mapper = new ObjectMapper();
@@ -36,7 +38,7 @@ public class HelloServlet extends HttpServlet {
         User sendUser = mapper.readValue(req.getInputStream(), User.class);
 
         // Business Logic
-        User user = new User();
+        User user = new User("");
         user.setId("0000");
         user.setName("Response from POST form " + sendUser.getName());
 
@@ -50,6 +52,15 @@ public class HelloServlet extends HttpServlet {
 class User {
     private String id;
     private String name;
+
+    public User(String id) {
+        this.id = id;
+    }
+
+    public User(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public String getId() {
         return id;
