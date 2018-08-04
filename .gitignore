@@ -5,3 +5,5 @@
 .idea/
 target/
 *.iml
+ui_test/*.html
+ui_test/*.xml
