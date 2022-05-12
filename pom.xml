@@ -46,7 +46,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>api</finalName>
+		<finalName>proiect</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
