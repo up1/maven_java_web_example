@@ -44,6 +44,23 @@
 
 
 	</dependencies>
+	
+	<distributionManagement>
+		
+   	      <repository>
+		<id>nexus</id>
+      	        <name>myrepo</name>
+		<url>http://44.210.241.234:8081/repository/myrepo/</url>
+ 	      </repository>
+		
+	      <snapshotRepository>
+		<id>nexus</id>
+      	        <name>myrepo</name>
+		<url>http://44.210.241.234:8081/repository/myrepo_snap/</url>
+ 	      </snapshotRepository>
+		
+       </distributionManagement> 
+
 
 	<build>
 		<finalName>api</finalName>
