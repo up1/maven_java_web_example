@@ -1,19 +1,20 @@
 pipeline{
   agent any
-  stages{
-    stage("Bulid"){
-      steps{
-          echo 'building the project'
-    }
-     stage("test"){
-       steps{
-          echo 'testing the project '
-       }
-    }
-     stage("deploy"){
-       steps{
-          echo 'deploying the project '
-       }
-    }
+  tools{
+      maven 'maven- id here'   
   }
-}
+  stages{
+    stage("Checkout"){
+      steps{
+          git 'git url here' 
+    }
+    }
+     stage("Build"){
+       steps{
+         sh 'mvn clean package' 
+                }
+            }
+        }
+    }
+
+
