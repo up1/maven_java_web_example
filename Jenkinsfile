@@ -1,9 +1,11 @@
 pipeline{
   agent any
+  
   stages{
     stage("Bulid"){
       steps{
           echo 'building the project'
+    }
     }
      stage("test"){
        steps{
