@@ -14,7 +14,7 @@ pipeline{
     }
      stage("deploy"){
        steps{
-          echo 'deploying the project '
+          sh 'mvn tomcat7:run'
        }
     }
   }
