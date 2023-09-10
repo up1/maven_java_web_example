@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>api</groupId>
 	<artifactId>api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>v-0.0.1-RELEASE</version>
 	<name>api</name>
 	<packaging>war</packaging>
 
@@ -11,8 +11,26 @@
 		<java-version>1.8</java-version>
 		<jackson.version>1.9.13</jackson.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+		
 
+
+<sonar.host.url>http://13.234.204.111:9000/</sonar.host.url>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin1</sonar.password>
+</properties>
+
+
+	</properties>
+ <distributionManagement>
+          <repository>
+                  <id>nexus-server</id>
+                  <url>http://3.110.151.40:8081/repository/KTS-RELEASE/</url>
+        </repository>
+        <snapshotRepository>
+                <id>nexus-server</id>
+                <url>http://3.110.151.40:8081/repository/KTS-SNAPSHOT/</url>
+        </snapshotRepository>
+</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
